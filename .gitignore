@@ -1,14 +1,12 @@
-rubberband/
+# macOS
 .DS_Store
-rubberband/
+
+# JUCE-generated folders to ignore
 Builds/
-*.xcuserstate
-*.xcworkspace
-*.xcuserdata
 JuceLibraryCode/
 rubberband/
-Builds/
+
+# Xcode project user files
 *.xcworkspace
 *.xcuserstate
 *.xcuserdata
-.DS_Store
