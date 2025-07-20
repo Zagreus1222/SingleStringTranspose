@@ -5,3 +5,10 @@ Builds/
 *.xcuserstate
 *.xcworkspace
 *.xcuserdata
+JuceLibraryCode/
+rubberband/
+Builds/
+*.xcworkspace
+*.xcuserstate
+*.xcuserdata
+.DS_Store
