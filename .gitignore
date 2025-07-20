@@ -1,0 +1,7 @@
+rubberband/
+.DS_Store
+rubberband/
+Builds/
+*.xcuserstate
+*.xcworkspace
+*.xcuserdata
