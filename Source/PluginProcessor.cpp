@@ -5,9 +5,10 @@
 #include "../../rubberband/rubberband/RubberBandStretcher.h"
 #include "../../rubberband/src/finer/R3Stretcher.h"
 
-using namespace RubberBand; // Only in CPP, not in headers
+using namespace RubberBand;
 
 //==============================================================================
+
 SingleStringTransposeAudioProcessor::SingleStringTransposeAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
     : AudioProcessor(BusesProperties()
@@ -20,21 +21,14 @@ SingleStringTransposeAudioProcessor::SingleStringTransposeAudioProcessor()
     )
 #endif
 {
-    selectedString = GuitarString::D; // Default string
-    semitoneShift = 0;                // Default transposition
-
-    // Example initialization (you can move this to prepareToPlay if needed)
-    // stretcher = std::make_unique<RubberBandStretcher>(
-    //     44100, 2,
-    //     RubberBandStretcher::OptionProcessRealTime |
-    //     RubberBandStretcher::OptionPitchHighQuality,
-    //     1.0, 1.0
-    // );
+    selectedString = GuitarString::D;
+    semitoneShift = 0;
 }
 
 SingleStringTransposeAudioProcessor::~SingleStringTransposeAudioProcessor() {}
 
 //==============================================================================
+
 const juce::String SingleStringTransposeAudioProcessor::getName() const {
     return JucePlugin_Name;
 }
@@ -67,24 +61,46 @@ double SingleStringTransposeAudioProcessor::getTailLengthSeconds() const {
     return 0.0;
 }
 
-int SingleStringTransposeAudioProcessor::getNumPrograms() {
-    return 1;
-}
-
-int SingleStringTransposeAudioProcessor::getCurrentProgram() {
-    return 0;
-}
-
+int SingleStringTransposeAudioProcessor::getNumPrograms() { return 1; }
+int SingleStringTransposeAudioProcessor::getCurrentProgram() { return 0; }
 void SingleStringTransposeAudioProcessor::setCurrentProgram(int) {}
 const juce::String SingleStringTransposeAudioProcessor::getProgramName(int) { return {}; }
 void SingleStringTransposeAudioProcessor::changeProgramName(int, const juce::String&) {}
 
 //==============================================================================
-void SingleStringTransposeAudioProcessor::prepareToPlay(double, int) {
-    // Optionally move RubberBandStretcher construction here
+
+void SingleStringTransposeAudioProcessor::prepareToPlay(double sampleRate, int /*samplesPerBlock*/)
+{
+    // Calculate pitch shift ratio
+    float pitchRatio = std::pow(2.0f, semitoneShift / 12.0f);
+
+    // Reset before re-initializing
+    stretcher.reset();
+
+    // Create a new RubberBandStretcher instance
+    stretcher = std::make_unique<RubberBand::RubberBandStretcher>(
+        sampleRate,
+        1, // Only processing one channel (one string)
+        RubberBand::RubberBandStretcher::OptionProcessRealTime |
+        RubberBand::RubberBandStretcher::OptionPitchHighQuality |
+        RubberBand::RubberBandStretcher::OptionThreadingAuto
+    );
+
+    // Set pitch shift (1.0 = no pitch change, >1 = up, <1 = down)
+    stretcher->setPitchScale(pitchRatio);
+
+    // Optional: make sure time stretching isn't used
+    stretcher->setTimeRatio(1.0);
+
+    // Optional: flush internal buffers
+    stretcher->reset();
 }
 
-void SingleStringTransposeAudioProcessor::releaseResources() {}
+
+
+void SingleStringTransposeAudioProcessor::releaseResources() {
+    stretcher.reset();
+}
 
 #ifndef JucePlugin_PreferredChannelConfigurations
 bool SingleStringTransposeAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const {
@@ -106,25 +122,47 @@ bool SingleStringTransposeAudioProcessor::isBusesLayoutSupported(const BusesLayo
 }
 #endif
 
-void SingleStringTransposeAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer&) {
+void SingleStringTransposeAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer&)
+{
     juce::ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels = getTotalNumInputChannels();
-    auto totalNumOutputChannels = getTotalNumOutputChannels();
-
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear(i, 0, buffer.getNumSamples());
+    const int numChannels = buffer.getNumChannels();
+    const int numSamples = buffer.getNumSamples();
 
     int stringChannel = static_cast<int>(selectedString);
+    if (stringChannel >= numChannels || stretcher == nullptr)
+        return;
 
-    // TODO: Apply Rubber Band pitch shifting here
-    // if (stretcher)
-    // {
-    //     float* channelData = buffer.getWritePointer(stringChannel);
-    //     stretcher->process(&channelData, buffer.getNumSamples(), false);
-    // }
+    // Set the pitch ratio based on semitone parameter
+    double ratio = std::pow(2.0, semitoneShift / 12.0);
+    stretcher->setPitchScale(ratio);
+
+    // Get input pointer
+    float* input = buffer.getWritePointer(stringChannel);
+
+    // Prepare RubberBand input
+    std::vector<float*> inputPtrs = { input };
+    stretcher->process(inputPtrs.data(), numSamples, false);
+
+    // Retrieve output if available
+    if (stretcher->available() > 0)
+    {
+        const int avail = std::min(stretcher->available(), numSamples);
+
+        // Create a temporary buffer for output
+        juce::AudioBuffer<float> tempBuffer(1, avail);
+        float* output = tempBuffer.getWritePointer(0);
+        std::vector<float*> outputPtrs = { output };
+
+        stretcher->retrieve(outputPtrs.data(), avail);
+
+        // Overwrite selected channel with pitch-shifted data
+        buffer.copyFrom(stringChannel, 0, tempBuffer, 0, 0, avail);
+    }
+
 }
 
 //==============================================================================
+
 bool SingleStringTransposeAudioProcessor::hasEditor() const {
     return true;
 }
@@ -134,16 +172,17 @@ juce::AudioProcessorEditor* SingleStringTransposeAudioProcessor::createEditor() 
 }
 
 //==============================================================================
+
 void SingleStringTransposeAudioProcessor::getStateInformation(juce::MemoryBlock& destData) {
     juce::MemoryOutputStream stream(destData, true);
     stream.writeInt(static_cast<int>(selectedString));
-    stream.writeInt(semitoneShift); // Save transpose
+    stream.writeInt(semitoneShift);
 }
 
 void SingleStringTransposeAudioProcessor::setStateInformation(const void* data, int sizeInBytes) {
     juce::MemoryInputStream stream(data, static_cast<size_t>(sizeInBytes), false);
     int storedId = stream.readInt();
-    int storedShift = stream.readInt(); // Load transpose
+    int storedShift = stream.readInt();
 
     if (storedId >= 0 && storedId <= 5)
         selectedString = static_cast<GuitarString>(storedId);
@@ -153,6 +192,7 @@ void SingleStringTransposeAudioProcessor::setStateInformation(const void* data, 
 }
 
 //==============================================================================
+
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() {
     return new SingleStringTransposeAudioProcessor();
 }

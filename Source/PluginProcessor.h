@@ -5,11 +5,11 @@
 
 enum class GuitarString
 {
-    E_low = 0,
-    A     = 1,
-    D     = 2,
-    G     = 3,
-    B     = 4,
+    E_low  = 0,
+    A      = 1,
+    D      = 2,
+    G      = 3,
+    B      = 4,
     E_high = 5
 };
 
@@ -19,6 +19,7 @@ public:
     SingleStringTransposeAudioProcessor();
     ~SingleStringTransposeAudioProcessor() override;
 
+    // Core audio processor overrides
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
 
@@ -28,6 +29,7 @@ public:
 
     void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&) override;
 
+    // GUI and metadata
     juce::AudioProcessorEditor* createEditor() override;
     bool hasEditor() const override;
 
@@ -44,10 +46,10 @@ public:
     const juce::String getProgramName (int index) override;
     void changeProgramName (int index, const juce::String& newName) override;
 
-    // new
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+    // External control
     void setSelectedString(GuitarString str) { selectedString = str; }
     GuitarString getSelectedString() const { return selectedString; }
 
@@ -55,10 +57,11 @@ public:
     int getSemitoneShift() const { return semitoneShift; }
 
 private:
+    // Parameters
     GuitarString selectedString = GuitarString::E_low;
     int semitoneShift = 0;
 
     std::unique_ptr<RubberBand::RubberBandStretcher> stretcher;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SingleStringTransposeAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SingleStringTransposeAudioProcessor)
 };
