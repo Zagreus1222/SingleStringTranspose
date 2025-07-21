@@ -2,6 +2,11 @@
 #include "PluginEditor.h"
 #include <cmath> // for std::pow
 
+#include "../../rubberband/rubberband/RubberBandStretcher.h"
+#include "../../rubberband/src/finer/R3Stretcher.h"
+
+using namespace RubberBand; // Only in CPP, not in headers
+
 //==============================================================================
 SingleStringTransposeAudioProcessor::SingleStringTransposeAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -16,7 +21,15 @@ SingleStringTransposeAudioProcessor::SingleStringTransposeAudioProcessor()
 #endif
 {
     selectedString = GuitarString::D; // Default string
-    semitoneShift = 0;               // Default transposition
+    semitoneShift = 0;                // Default transposition
+
+    // Example initialization (you can move this to prepareToPlay if needed)
+    // stretcher = std::make_unique<RubberBandStretcher>(
+    //     44100, 2,
+    //     RubberBandStretcher::OptionProcessRealTime |
+    //     RubberBandStretcher::OptionPitchHighQuality,
+    //     1.0, 1.0
+    // );
 }
 
 SingleStringTransposeAudioProcessor::~SingleStringTransposeAudioProcessor() {}
@@ -67,7 +80,10 @@ const juce::String SingleStringTransposeAudioProcessor::getProgramName(int) { re
 void SingleStringTransposeAudioProcessor::changeProgramName(int, const juce::String&) {}
 
 //==============================================================================
-void SingleStringTransposeAudioProcessor::prepareToPlay(double, int) {}
+void SingleStringTransposeAudioProcessor::prepareToPlay(double, int) {
+    // Optionally move RubberBandStretcher construction here
+}
+
 void SingleStringTransposeAudioProcessor::releaseResources() {}
 
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -98,9 +114,16 @@ void SingleStringTransposeAudioProcessor::processBlock(juce::AudioBuffer<float>&
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear(i, 0, buffer.getNumSamples());
 
-    int stringChannel = static_cast<int>(selectedStrings);
+    int stringChannel = static_cast<int>(selectedString);
 
- 
+    // TODO: Apply Rubber Band pitch shifting here
+    // if (stretcher)
+    // {
+    //     float* channelData = buffer.getWritePointer(stringChannel);
+    //     stretcher->process(&channelData, buffer.getNumSamples(), false);
+    // }
+}
+
 //==============================================================================
 bool SingleStringTransposeAudioProcessor::hasEditor() const {
     return true;
@@ -114,13 +137,13 @@ juce::AudioProcessorEditor* SingleStringTransposeAudioProcessor::createEditor() 
 void SingleStringTransposeAudioProcessor::getStateInformation(juce::MemoryBlock& destData) {
     juce::MemoryOutputStream stream(destData, true);
     stream.writeInt(static_cast<int>(selectedString));
-    stream.writeInt(semitoneShift); //  Save transpose
+    stream.writeInt(semitoneShift); // Save transpose
 }
 
 void SingleStringTransposeAudioProcessor::setStateInformation(const void* data, int sizeInBytes) {
     juce::MemoryInputStream stream(data, static_cast<size_t>(sizeInBytes), false);
     int storedId = stream.readInt();
-    int storedShift = stream.readInt(); //  Load transpose
+    int storedShift = stream.readInt(); // Load transpose
 
     if (storedId >= 0 && storedId <= 5)
         selectedString = static_cast<GuitarString>(storedId);

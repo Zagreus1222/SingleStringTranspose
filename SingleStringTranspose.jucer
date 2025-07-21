@@ -1,8 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="QYPTEQ" name="SingleStringTranspose" projectType="audioplug"
-              useAppConfig="0" addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              useAppConfig="0" addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1"
+              headerPath="../../rubberband&#10;../../rubberband/rubberband&#10;../../rubberband/src&#10;">
   <MAINGROUP id="KAjrUb" name="SingleStringTranspose">
+    <GROUP id="{8F3D267B-6AB6-E11E-C532-2227BF1207C6}" name="rubberband">
+      <GROUP id="{885203C9-41C2-D865-9FC4-29C43AB7A628}" name="build">
+        <GROUP id="{9560010D-146A-2F95-EBBA-3BE454C0614F}" name="build"/>
+        <GROUP id="{FA1881F9-ADAE-6928-D906-D241113A8106}" name="librubberband.3.dylib.p"/>
+        <GROUP id="{33D1338E-26E4-8076-DFAA-E5C9FFEDC8B7}" name="librubberband.a.p"/>
+        <GROUP id="{F85B6851-5AD9-1749-DF89-8AF61E035094}" name="librubberband_objlib.a.p">
+          <FILE id="loElj8" name="src_common_Allocators.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_common_Allocators.cpp.o"/>
+          <FILE id="kT7BFR" name="src_common_BQResampler.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_common_BQResampler.cpp.o"/>
+          <FILE id="g4smEG" name="src_common_FFT.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_common_FFT.cpp.o"/>
+          <FILE id="g8T8f0" name="src_common_Log.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_common_Log.cpp.o"/>
+          <FILE id="TJdgxH" name="src_common_mathmisc.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_common_mathmisc.cpp.o"/>
+          <FILE id="rWY7zO" name="src_common_Profiler.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_common_Profiler.cpp.o"/>
+          <FILE id="DMD0uT" name="src_common_Resampler.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_common_Resampler.cpp.o"/>
+          <FILE id="mgM5fF" name="src_common_StretchCalculator.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_common_StretchCalculator.cpp.o"/>
+          <FILE id="ncAPUQ" name="src_common_sysutils.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_common_sysutils.cpp.o"/>
+          <FILE id="U8txse" name="src_common_Thread.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_common_Thread.cpp.o"/>
+          <FILE id="FMvK6b" name="src_faster_AudioCurveCalculator.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_faster_AudioCurveCalculator.cpp.o"/>
+          <FILE id="gv5Tye" name="src_faster_CompoundAudioCurve.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_faster_CompoundAudioCurve.cpp.o"/>
+          <FILE id="GrRtlT" name="src_faster_HighFrequencyAudioCurve.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_faster_HighFrequencyAudioCurve.cpp.o"/>
+          <FILE id="DbNgAD" name="src_faster_PercussiveAudioCurve.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_faster_PercussiveAudioCurve.cpp.o"/>
+          <FILE id="AGVoG2" name="src_faster_R2Stretcher.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_faster_R2Stretcher.cpp.o"/>
+          <FILE id="YRMdNF" name="src_faster_SilentAudioCurve.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_faster_SilentAudioCurve.cpp.o"/>
+          <FILE id="fjBvAP" name="src_faster_StretcherChannelData.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_faster_StretcherChannelData.cpp.o"/>
+          <FILE id="et2wAt" name="src_faster_StretcherProcess.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_faster_StretcherProcess.cpp.o"/>
+          <FILE id="yZzA1A" name="src_finer_R3LiveShifter.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_finer_R3LiveShifter.cpp.o"/>
+          <FILE id="ylQjtm" name="src_finer_R3Stretcher.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_finer_R3Stretcher.cpp.o"/>
+          <FILE id="Pz3DUY" name="src_rubberband-c.cpp.o" compile="0" resource="1"
+                file="rubberband/build/librubberband_objlib.a.p/src_rubberband-c.cpp.o"/>
+          <FILE id="tmhuX9" name="src_RubberBandLiveShifter.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_RubberBandLiveShifter.cpp.o"/>
+          <FILE id="StSjCM" name="src_RubberBandStretcher.cpp.o" compile="0"
+                resource="1" file="rubberband/build/librubberband_objlib.a.p/src_RubberBandStretcher.cpp.o"/>
+        </GROUP>
+        <GROUP id="{77F77AC2-B8B3-C19C-4884-C60D3A07F960}" name="meson-info">
+          <FILE id="P9VHD5" name="intro-benchmarks.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-benchmarks.json"/>
+          <FILE id="GICcxt" name="intro-buildoptions.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-buildoptions.json"/>
+          <FILE id="bFX4uW" name="intro-buildsystem_files.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-buildsystem_files.json"/>
+          <FILE id="p2zUHM" name="intro-compilers.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-compilers.json"/>
+          <FILE id="k4WJOT" name="intro-dependencies.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-dependencies.json"/>
+          <FILE id="GEs5ru" name="intro-install_plan.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-install_plan.json"/>
+          <FILE id="Ysqe7t" name="intro-installed.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-installed.json"/>
+          <FILE id="WDx5Zw" name="intro-machines.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-machines.json"/>
+          <FILE id="VBOZqF" name="intro-projectinfo.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-projectinfo.json"/>
+          <FILE id="kvtVHM" name="intro-targets.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-targets.json"/>
+          <FILE id="DlHCXp" name="intro-tests.json" compile="0" resource="1"
+                file="rubberband/build/meson-info/intro-tests.json"/>
+          <FILE id="lOeppt" name="meson-info.json" compile="0" resource="1" file="rubberband/build/meson-info/meson-info.json"/>
+        </GROUP>
+        <GROUP id="{11CE6C42-A525-1F80-F9DA-3CEC1EC76CF0}" name="meson-logs">
+          <FILE id="H4fmNo" name="meson-log.txt" compile="0" resource="1" file="rubberband/build/meson-logs/meson-log.txt"/>
+        </GROUP>
+        <GROUP id="{99305F14-B5CE-16EE-33D0-9B912A7CCD35}" name="meson-private">
+          <GROUP id="{CAAD140E-7CCF-FD0C-4034-1B76F0E0F54C}" name="__CMake_compiler_info__">
+            <GROUP id="{8E5ADED1-425E-0A76-4C49-61490A12AC52}" name="CMakeFiles">
+              <GROUP id="{50993417-9B28-3E5A-F82A-D7A7FF5A0166}" name="4.0.3">
+                <GROUP id="{AC06D48E-CDA4-FF12-CF26-C96EEE000E0D}" name="CompilerIdC">
+                  <GROUP id="{F78F9FEE-49F5-2952-B86F-9B15108AA9CE}" name="tmp"/>
+                  <FILE id="bLNUO1" name="a.out" compile="0" resource="1" file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CompilerIdC/a.out"/>
+                  <FILE id="fxBrAN" name="apple-sdk.c" compile="1" resource="0" file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CompilerIdC/apple-sdk.c"/>
+                  <FILE id="wWkgeY" name="CMakeCCompilerId.c" compile="1" resource="0"
+                        file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CompilerIdC/CMakeCCompilerId.c"/>
+                </GROUP>
+                <GROUP id="{EA6188A3-3E44-4173-5974-3F73B98140DF}" name="CompilerIdCXX">
+                  <GROUP id="{E6645E7A-F9A2-DD4E-5FCC-88679D99AF7E}" name="tmp"/>
+                  <FILE id="FU8clV" name="a.out" compile="0" resource="1" file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CompilerIdCXX/a.out"/>
+                  <FILE id="s269g5" name="apple-sdk.cpp" compile="1" resource="0" file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CompilerIdCXX/apple-sdk.cpp"/>
+                  <FILE id="jeDPHh" name="CMakeCXXCompilerId.cpp" compile="1" resource="0"
+                        file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CompilerIdCXX/CMakeCXXCompilerId.cpp"/>
+                </GROUP>
+                <FILE id="gYxsWJ" name="CMakeCCompiler.cmake" compile="0" resource="1"
+                      file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CMakeCCompiler.cmake"/>
+                <FILE id="WsgBFr" name="CMakeCXXCompiler.cmake" compile="0" resource="1"
+                      file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CMakeCXXCompiler.cmake"/>
+                <FILE id="vtcyaO" name="CMakeDetermineCompilerABI_C.bin" compile="0"
+                      resource="1" file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CMakeDetermineCompilerABI_C.bin"/>
+                <FILE id="vJKXoF" name="CMakeDetermineCompilerABI_CXX.bin" compile="0"
+                      resource="1" file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CMakeDetermineCompilerABI_CXX.bin"/>
+                <FILE id="xAHyY6" name="CMakeSystem.cmake" compile="0" resource="1"
+                      file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/4.0.3/CMakeSystem.cmake"/>
+              </GROUP>
+              <GROUP id="{F08EC242-E66D-DE0C-0A47-43D6B5E3DC79}" name="CMakeScratch"/>
+              <GROUP id="{5F50128C-9AFB-05D3-6E44-EA0765828FC1}" name="pkgRedirects"/>
+              <FILE id="FTYkZY" name="cmake.check_cache" compile="0" resource="1"
+                    file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/cmake.check_cache"/>
+              <FILE id="PK77LQ" name="CMakeConfigureLog.yaml" compile="0" resource="1"
+                    file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/CMakeConfigureLog.yaml"/>
+              <FILE id="DQtylb" name="InstallScripts.json" compile="0" resource="1"
+                    file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/InstallScripts.json"/>
+              <FILE id="LGQnZb" name="rules.ninja" compile="0" resource="1" file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/rules.ninja"/>
+              <FILE id="k1XYYO" name="TargetDirectories.txt" compile="0" resource="1"
+                    file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeFiles/TargetDirectories.txt"/>
+            </GROUP>
+            <FILE id="kp7Y8o" name="build.ninja" compile="0" resource="1" file="rubberband/build/meson-private/__CMake_compiler_info__/build.ninja"/>
+            <FILE id="tB3Q7k" name="cmake_install.cmake" compile="0" resource="1"
+                  file="rubberband/build/meson-private/__CMake_compiler_info__/cmake_install.cmake"/>
+            <FILE id="ZCjGei" name="cmake_trace.txt" compile="0" resource="1" file="rubberband/build/meson-private/__CMake_compiler_info__/cmake_trace.txt"/>
+            <FILE id="Ne4WE2" name="CMakeCache.txt" compile="0" resource="1" file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeCache.txt"/>
+            <FILE id="JbWWfw" name="CMakeLists.txt" compile="0" resource="1" file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeLists.txt"/>
+            <FILE id="hS2Ihm" name="CMakeMesonTempToolchainFile.cmake" compile="0"
+                  resource="1" file="rubberband/build/meson-private/__CMake_compiler_info__/CMakeMesonTempToolchainFile.cmake"/>
+          </GROUP>
+          <GROUP id="{B14DACCB-E10E-F826-E768-C989C493E39A}" name="cmake_fftw3">
+            <GROUP id="{D3A3DD1E-639B-962E-1DD5-2D08D4543DEE}" name="CMakeFiles">
+              <GROUP id="{7262841E-23D1-41FD-C921-AA7D10C3A110}" name="4.0.3">
+                <FILE id="to4Cev" name="CMakeCCompiler.cmake" compile="0" resource="1"
+                      file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/4.0.3/CMakeCCompiler.cmake"/>
+                <FILE id="vQaXEN" name="CMakeCXXCompiler.cmake" compile="0" resource="1"
+                      file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/4.0.3/CMakeCXXCompiler.cmake"/>
+                <FILE id="PwYYDr" name="CMakeSystem.cmake" compile="0" resource="1"
+                      file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/4.0.3/CMakeSystem.cmake"/>
+              </GROUP>
+              <GROUP id="{EA1C49FE-FCA0-405D-9265-EA778A2047B5}" name="pkgRedirects"/>
+              <FILE id="o3OGkc" name="cmake.check_cache" compile="0" resource="1"
+                    file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/cmake.check_cache"/>
+              <FILE id="iSRp4s" name="CMakeConfigureLog.yaml" compile="0" resource="1"
+                    file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/CMakeConfigureLog.yaml"/>
+              <FILE id="NwIZOC" name="CMakeDirectoryInformation.cmake" compile="0"
+                    resource="1" file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/CMakeDirectoryInformation.cmake"/>
+              <FILE id="tcIXc3" name="InstallScripts.json" compile="0" resource="1"
+                    file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/InstallScripts.json"/>
+              <FILE id="PSWjx3" name="Makefile.cmake" compile="0" resource="1" file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/Makefile.cmake"/>
+              <FILE id="EPh9ZE" name="Makefile2" compile="0" resource="1" file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/Makefile2"/>
+              <FILE id="Z0mIgC" name="progress.marks" compile="0" resource="1" file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/progress.marks"/>
+              <FILE id="qhECy7" name="TargetDirectories.txt" compile="0" resource="1"
+                    file="rubberband/build/meson-private/cmake_fftw3/CMakeFiles/TargetDirectories.txt"/>
+            </GROUP>
+            <FILE id="dZDjRj" name="cmake_install.cmake" compile="0" resource="1"
+                  file="rubberband/build/meson-private/cmake_fftw3/cmake_install.cmake"/>
+            <FILE id="HzfKER" name="cmake_trace.txt" compile="0" resource="1" file="rubberband/build/meson-private/cmake_fftw3/cmake_trace.txt"/>
+            <FILE id="PO2674" name="CMakeCache.txt" compile="0" resource="1" file="rubberband/build/meson-private/cmake_fftw3/CMakeCache.txt"/>
+            <FILE id="MQGIJQ" name="CMakeLists.txt" compile="0" resource="1" file="rubberband/build/meson-private/cmake_fftw3/CMakeLists.txt"/>
+            <FILE id="aURM4T" name="CMakeMesonToolchainFile.cmake" compile="0"
+                  resource="1" file="rubberband/build/meson-private/cmake_fftw3/CMakeMesonToolchainFile.cmake"/>
+            <FILE id="pXAkfs" name="Makefile" compile="0" resource="1" file="rubberband/build/meson-private/cmake_fftw3/Makefile"/>
+          </GROUP>
+          <GROUP id="{D41EDE61-E189-B3D7-6FAF-7FA7EDFE2480}" name="cmake_samplerate"/>
+          <GROUP id="{B50BE779-2E9D-499C-4574-F05104147DCE}" name="cmake_sleef"/>
+          <GROUP id="{BF84CFA0-A052-F5DB-8F21-CCF1DCF5936D}" name="cmake_sleefdft"/>
+          <GROUP id="{45240B87-6141-33D0-DEB9-D7944163D6BC}" name="cmake_sndfile"/>
+          <GROUP id="{4AD0944F-35CE-D3A8-F24D-B177A00F62B0}" name="cmake_speexdsp"/>
+          <GROUP id="{FE7E03FE-2B4F-9603-2BEB-366ACCD9CA43}" name="cmake_vamp-sdk"/>
+          <FILE id="Y4pahV" name="build.dat" compile="0" resource="1" file="rubberband/build/meson-private/build.dat"/>
+          <FILE id="XsfNSS" name="cmd_line.txt" compile="0" resource="1" file="rubberband/build/meson-private/cmd_line.txt"/>
+          <FILE id="mqvgyZ" name="coredata.dat" compile="0" resource="1" file="rubberband/build/meson-private/coredata.dat"/>
+          <FILE id="L6jR9l" name="install.dat" compile="0" resource="1" file="rubberband/build/meson-private/install.dat"/>
+          <FILE id="bZKllv" name="meson.lock" compile="0" resource="1" file="rubberband/build/meson-private/meson.lock"/>
+          <FILE id="zqsLtT" name="meson_benchmark_setup.dat" compile="0" resource="1"
+                file="rubberband/build/meson-private/meson_benchmark_setup.dat"/>
+          <FILE id="T86wo2" name="meson_test_setup.dat" compile="0" resource="1"
+                file="rubberband/build/meson-private/meson_test_setup.dat"/>
+          <FILE id="WSIS3I" name="rubberband.pc" compile="0" resource="1" file="rubberband/build/meson-private/rubberband.pc"/>
+          <FILE id="e4AJzn" name="SanityCheck.class" compile="0" resource="1"
+                file="rubberband/build/meson-private/SanityCheck.class"/>
+          <FILE id="YVmwUo" name="SanityCheck.java" compile="0" resource="1"
+                file="rubberband/build/meson-private/SanityCheck.java"/>
+          <FILE id="p1B8qC" name="sanitycheckc.c" compile="1" resource="0" file="rubberband/build/meson-private/sanitycheckc.c"/>
+          <FILE id="Q7VmKX" name="sanitycheckc.exe" compile="0" resource="1"
+                file="rubberband/build/meson-private/sanitycheckc.exe"/>
+          <FILE id="zqTZqz" name="sanitycheckcpp.cc" compile="1" resource="0"
+                file="rubberband/build/meson-private/sanitycheckcpp.cc"/>
+          <FILE id="fQRQWs" name="sanitycheckcpp.exe" compile="0" resource="1"
+                file="rubberband/build/meson-private/sanitycheckcpp.exe"/>
+        </GROUP>
+        <GROUP id="{6DC6F664-789E-9E1E-98CF-DB9EE6C8ED68}" name="meson-uninstalled">
+          <FILE id="i94osq" name="rubberband-uninstalled.pc" compile="0" resource="1"
+                file="rubberband/build/meson-uninstalled/rubberband-uninstalled.pc"/>
+        </GROUP>
+        <FILE id="aUqW1t" name="build.ninja" compile="0" resource="1" file="rubberband/build/build.ninja"/>
+        <FILE id="wj8p9A" name="compile_commands.json" compile="0" resource="1"
+              file="rubberband/build/compile_commands.json"/>
+        <FILE id="A4n8HS" name="librubberband.3.dylib" compile="0" resource="1"
+              file="rubberband/build/librubberband.3.dylib"/>
+        <FILE id="cr4MGP" name="librubberband.a" compile="0" resource="1" file="rubberband/build/librubberband.a"/>
+        <FILE id="jGAPf1" name="librubberband.dylib" compile="0" resource="1"
+              file="rubberband/build/librubberband.dylib"/>
+        <FILE id="YKhN3u" name="librubberband_objlib.a" compile="0" resource="1"
+              file="rubberband/build/librubberband_objlib.a"/>
+      </GROUP>
+      <GROUP id="{DF76DB06-CB94-72CC-040A-035887A569B2}" name="com">
+        <GROUP id="{B6AB22C5-406A-19EB-7E48-D553978B5A30}" name="breakfastquay">
+          <GROUP id="{A1A0CE4F-6E03-B359-9E63-2AA91C41AD49}" name="rubberband">
+            <GROUP id="{82B4419E-73BA-BE2F-7AC3-1EC9F1A6C777}" name="test">
+              <FILE id="BurxZ0" name="RubberBandTest.java" compile="0" resource="1"
+                    file="rubberband/com/breakfastquay/rubberband/test/RubberBandTest.java"/>
+            </GROUP>
+            <FILE id="BXu9lw" name="RubberBandLiveShifter.java" compile="0" resource="1"
+                  file="rubberband/com/breakfastquay/rubberband/RubberBandLiveShifter.java"/>
+            <FILE id="U5hFEa" name="RubberBandStretcher.java" compile="0" resource="1"
+                  file="rubberband/com/breakfastquay/rubberband/RubberBandStretcher.java"/>
+          </GROUP>
+        </GROUP>
+      </GROUP>
+      <GROUP id="{40687234-5E53-8C37-4202-6507E046DF1F}" name="rubberband">
+        <FILE id="X5ginK" name="rubberband-c.h" compile="0" resource="0" file="rubberband/rubberband/rubberband-c.h"/>
+        <FILE id="crrTxP" name="RubberBandLiveShifter.h" compile="0" resource="0"
+              file="rubberband/rubberband/RubberBandLiveShifter.h"/>
+        <FILE id="NlT4rQ" name="RubberBandStretcher.h" compile="0" resource="0"
+              file="rubberband/rubberband/RubberBandStretcher.h"/>
+      </GROUP>
+      <GROUP id="{B735D322-8BA1-7836-CDD9-20DB2EF92A1C}" name="single">
+        <FILE id="e3maLA" name="RubberBandSingle.cpp" compile="0" resource="0"
+              file="rubberband/single/RubberBandSingle.cpp"/>
+      </GROUP>
+    </GROUP>
     <GROUP id="{8C9BF379-8A7D-C6FB-0950-3E4DB6BAD383}" name="Source">
       <FILE id="MFTY9N" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
@@ -31,10 +266,12 @@
   </MODULES>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" externalLibraries="rubberband_objlib&#10;">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="SingleStringTranspose"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="SingleStringTranspose"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="SingleStringTranspose" headerPath="../../rubberband/rubberband&#10;"
+                       libraryPath="../../rubberband/build&#10;"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="SingleStringTranspose"
+                       headerPath="../../rubberband/rubberband&#10;" libraryPath="../../rubberband/build&#10;"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../modules"/>
